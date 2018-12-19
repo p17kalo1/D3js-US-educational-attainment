@@ -29,7 +29,7 @@
 	    <svg id="pie-chart" width="960" height="450"></svg><a name="regional"></a>
 	</div>	   
 	
-        <div class="hide" id="reg" style="display:none">
+        <div class="hide" id="reg" style="display:block">
             <h2 class="subtitle" onmouseover="responsiveVoice.speak('Educational Attainment: Region-level Breakdown of University Students','US English Male');" onmouseleave="responsiveVoice.cancel();">Educational Attainment: Region-level Breakdown of University Students</h2>
 	
     <form id="tree-form">
@@ -104,6 +104,8 @@ function showhide(id){
         } 
         return false;
  }
+	/* Μονο ετσι δουλευει.*/
+	document.getElementById("reg").style.display = "none";
 </script>
 	
 <audio>
