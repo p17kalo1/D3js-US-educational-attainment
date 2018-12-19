@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script type="text/javascript" src="sound-mouseover.js"></script>
     <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	
 </head>
   <header>
        <nav>
@@ -17,6 +19,7 @@
       <li><a href="#national" onclick="showhide('nw');" onmouseover="playclip();">National</a></li>
       <li><a href="#regional" onclick="showhide('reg');" onmouseover="playclip();">Regional</a></li>
       <li><a href="#state" onclick="showhide('st');" onmouseover="playclip();">State-Level</a></li>
+      <li><a href="#state" onclick="showhide('3e');" onmouseover="playclip();">3 Extra Graphs</a></li>
     <ul>
         </nav>
     </header>
@@ -64,7 +67,37 @@
         <svg id="stacked-bar-chart"></svg>
     </div>
 </div>	  
+<div class="hide" id="3e" style="display:none">
+	<h1 class="title" onmouseover="responsiveVoice.speak('3 Extra Graphs','US English Male');" onmouseleave="responsiveVoice.cancel();">3 Extra Graphs</h1>
+       
+	
+	    <h2 class="subtitle" onmouseover="responsiveVoice.speak('Number of establishments and bed-places','US English Male');" onmouseleave="responsiveVoice.cancel();">Number of establishments and bed-places</h2>
 
+	    <script>
+	google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(draw1st);
+      function draw1st() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Italy', 'Greece', 'Sweden', 'Spain', 'France', 'Average'],
+          ['2013',  157521 ,  	33657 ,     4261,   46488,   28246,         54034],     
+          ['2014',  158412 ,     34522,     4269,   47689,   28895,         54757],
+          ['2015',  167697,      34681,     4184,   48328,   30045,         56987],
+          ['2016',  178449 ,      34665,    4187,   48701,   30047,         59210],
+          ['2017',  204903,      35719,     4222,   50518,   29835,         65039]
+        ]);
+        var options = {
+          title : 'Number of establishments and bed-places',
+          vAxis: {title: 'Establishments'},
+          hAxis: {title: 'Year'},
+          seriesType: 'bars',
+          series: {5: {type: 'line'}}
+        };
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }  
+	</script>
+	</div>	   
     
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -104,8 +137,13 @@ function showhide(id){
         } 
         return false;
  }
-	/* Μονο ετσι δουλευει.*/
+	/* Μονο ετσι δουλευει. Δεν ξερω γιατι.*/
 	document.getElementById("reg").style.display = "none";
+
+	
+    
+	
+
 </script>
 	
 <audio>
