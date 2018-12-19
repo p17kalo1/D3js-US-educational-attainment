@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script type="text/javascript" src="sound-mouseover.js"></script>
     <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
 	
 </head>
   <header>
@@ -19,12 +19,14 @@
       <li><a href="#national" onclick="showhide('nw');" onmouseover="playclip();">National</a></li>
       <li><a href="#regional" onclick="showhide('reg');" onmouseover="playclip();">Regional</a></li>
       <li><a href="#state" onclick="showhide('st');" onmouseover="playclip();">State-Level</a></li>
-      <li><a href="#state" onclick="showhide('3e');" onmouseover="playclip();">3 Extra Graphs</a></li>
+      <li><a href="#state" onclick="showhide('3e');showhide('wt');" onmouseover="playclip();">3 Extra Graphs</a></li>
     <ul>
         </nav>
     </header>
 <body>
+	<div class="hide" id="wt">
     <h1 class="title" onmouseover="responsiveVoice.speak('Educational Attainment in the United States','US English Male');" onmouseleave="responsiveVoice.cancel();">Educational Attainment in the United States</h1>
+	</div>
        <div class="hide" id="nw">
 	
 	    <h2 class="subtitle" onmouseover="responsiveVoice.speak('Nation-Wide Education Level of Population in Schooling','US English Male');" onmouseleave="responsiveVoice.cancel();">Nation-Wide Education Level of Population in Schooling</h2>
@@ -72,8 +74,8 @@
        
 	
 	    <h2 class="subtitle" onmouseover="responsiveVoice.speak('Number of establishments and bed-places','US English Male');" onmouseleave="responsiveVoice.cancel();">Number of establishments and bed-places</h2>
-
-	    <script>
+	    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	    <script type="text/javascript">
 	google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(draw1st);
       function draw1st() {
