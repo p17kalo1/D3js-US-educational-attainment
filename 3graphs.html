@@ -33,6 +33,28 @@
         var chart = new google.visualization.ComboChart(document.getElementById('graphone'));
         chart.draw(data, options);
       } 
+	    
+      google.charts.setOnLoadCallback(draw2nd);
+      function draw2nd() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Italy', 'Greece', 'Sweden', 'Spain', 'France', 'Average'],
+	  ['2012',   61.5 ,    64.9 ,    65.7 ,   65.8 ,    63.8 ,    64.34 ],   
+          ['2013',   60.9 ,    65.1 ,    66.0 ,   63.9 ,    64.4 ,    64.06 ],     
+          ['2014',   62.3 ,    64.8 ,    73.6 ,   65.0 ,    64.2 ,    65.98 ],
+          ['2015',   62.7 ,    64.1 ,    73.8 ,   64.1 ,    64.6 ,    65.86 ],
+          ['2016',   67.2 ,    64.7 ,    73.3 ,   66.5 ,    64.1 ,    67.16 ]
+        ]);
+        var options = {
+          title : 'Healthy life years (Female)',
+          vAxis: {title: 'Life Ecpectancy'},
+          hAxis: {title: 'Year'},
+          seriesType: 'bars',
+          series: {5: {type: 'line'}}
+        };
+        var chart = new google.visualization.ComboChart(document.getElementById('graphtwo'));
+        chart.draw(data, options);
+      } 
 </script>
 
 </head>
@@ -53,8 +75,13 @@
 	    <h2 class="subtitle" onmouseover="responsiveVoice.speak('Graph 1','US English Male');" onmouseleave="responsiveVoice.cancel();">Graph 1</h2>
 	<center>
 	<div id="graphone" style="width: 900px; height: 500px;"></div>
+	  
+	       
+	       
+     <h2 class="subtitle" onmouseover="responsiveVoice.speak('Graph 2','US English Male');" onmouseleave="responsiveVoice.cancel();">Graph 2</h2>
+	
+	<div id="graphtwo" style="width: 900px; height: 500px;"></div>
 	       </center>
-    
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script type="text/javascript" src="assets/scripts/sound-mouseover.js"></script>
