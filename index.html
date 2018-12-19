@@ -71,7 +71,7 @@
 </div>	  
 <div class="hide" id="3e" style="display:none">
 	<h1 class="title" onmouseover="responsiveVoice.speak('3 Extra Graphs','US English Male');" onmouseleave="responsiveVoice.cancel();">3 Extra Graphs</h1>
-       
+   
 	
 	    <h2 class="subtitle" onmouseover="responsiveVoice.speak('Number of establishments and bed-places','US English Male');" onmouseleave="responsiveVoice.cancel();">Number of establishments and bed-places</h2>
 	    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -95,10 +95,11 @@
           seriesType: 'bars',
           series: {5: {type: 'line'}}
         };
-        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.ComboChart(document.getElementById('1stGraph'));
         chart.draw(data, options);
       }  
 	</script>
+	<div id="1stGraph" style="width: 900px; height: 500px;"></div>
 	</div>	   
     
 <script src="https://d3js.org/d3.v4.min.js"></script>
