@@ -55,6 +55,28 @@
         var chart = new google.visualization.ComboChart(document.getElementById('graphtwo'));
         chart.draw(data, options);
       } 
+	    
+ google.charts.setOnLoadCallback(draw3rd);
+      function draw3rd() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Italy', 'Greece', 'Sweden', 'Spain', 'France', 'Average'],
+	  ['2008',      2 ,       2 ,     1.7 ,    1.4 ,     1.5 ,     1.72 ],   
+          ['2009',      2 ,       2 ,     1.7 ,    1.4 ,     1.5 ,     1.72 ],     
+          ['2010',      2 ,       2 ,     1.8 ,    1.4 ,     1.5 ,     1.74 ],
+          ['2011',      2 ,     1.9 ,     1.8 ,    1.4 ,     1.5 ,     1.72 ],
+          ['2012',      2 ,     1.9 ,     1.9 ,    1.4 ,     1.5 ,     1.74 ]
+        ]);
+        var options = {
+          title : 'Healthy life years (Female)',
+          vAxis: {title: 'Number of Languages'},
+          hAxis: {title: 'Year'},
+          seriesType: 'bars',
+          series: {5: {type: 'line'}}
+        };
+        var chart = new google.visualization.ComboChart(document.getElementById('graphthree'));
+        chart.draw(data, options);
+      } 
 </script>
 
 </head>
@@ -79,6 +101,10 @@
      <h2 class="subtitle" onmouseover="responsiveVoice.speak('Graph 2','US English Male');" onmouseleave="responsiveVoice.cancel();">Graph 2</h2>
 	
 	<div id="graphtwo" style="width: 900px; height: 500px;"></div>
+		
+    <h2 class="subtitle" onmouseover="responsiveVoice.speak('Graph 3','US English Male');" onmouseleave="responsiveVoice.cancel();">Graph 3</h2>
+	
+	<div id="graphthree" style="width: 900px; height: 500px;"></div>
 	       </center>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
