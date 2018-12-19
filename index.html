@@ -14,21 +14,20 @@
        <nav>
     <ul>
       <li><a href="#top" onmouseover="playclip();">Top</a></li>
-      <li><a href="#national" onmouseover="playclip();">National</a></li>
-      <li><a href="#regional" onmouseover="playclip();">Regional</a></li>
-      <li><a href="#state" onmouseover="playclip();">State-Level</a></li>
+      <li><a href="#national" onclick="showhide('nw');" onmouseover="playclip();">National</a></li>
+      <li><a href="#regional" onclick="showhide('reg');" onmouseover="playclip();">Regional</a></li>
+      <li><a href="#state" onclick="showhide('st');" onmouseover="playclip();">State-Level</a></li>
     <ul>
         </nav>
     </header>
 <body>
     <h1 class="title" onmouseover="responsiveVoice.speak('Educational Attainment in the United States','US English Male');" onmouseleave="responsiveVoice.cancel();">Educational Attainment in the United States</h1>
-        
+       <div class="hide" id="nw">
 	
-	<p><br></p>
     <h2 class="subtitle" onmouseover="responsiveVoice.speak('Nation-Wide Education Level of Population in Schooling','US English Male');" onmouseleave="responsiveVoice.cancel();">Nation-Wide Education Level of Population in Schooling</h2>
 	
     <svg id="pie-chart" width="960" height="450"></svg><a name="regional"></a>
-    <p><br><br><br></p>
+    <div class="hide" id="reg" style="display:none">
     <h2 class="subtitle" onmouseover="responsiveVoice.speak('Educational Attainment: Region-level Breakdown of University Students','US English Male');" onmouseleave="responsiveVoice.cancel();">Educational Attainment: Region-level Breakdown of University Students</h2>
 	
     <form id="tree-form">
@@ -46,7 +45,7 @@
 	<p></p>
     <div id="chart"></div>
 	<a name="state"></a>
-    <p><br><br></p>
+    <div class="hide" id="st" style="display:none">
     <h2 class="subtitle" onmouseover="responsiveVoice.speak('Education Level of Population in Schooling: State-level Breakdown','US English Male');" onmouseleave="responsiveVoice.cancel();">Education Level of Population in Schooling: State-level Breakdown</h2>
 	
     <form id="stack-form">
@@ -87,6 +86,19 @@
 /* scrollTop() >= 240
    Should be equal the the height of the header
  */
+	
+/*Thanks to stackoverflow*/
+function showhide(id){
+        if (document.getElementById) {
+          var divid = document.getElementById(id);
+          var divs = document.getElementsByClassName("hide");
+          for(var i=0;i<divs.length;i++) {
+            divs[i].style.display = "none";
+          }
+          divid.style.display = "block";
+        } 
+        return false;
+ }
 </script>
 	
 <audio>
